@@ -35,7 +35,7 @@ const mainMenuTemplate = [
         label: 'File',
         submenu: [
             {
-                label: 'Start new tracery'
+                label: 'New file'
             },
             {
                 label: 'Quit',
