@@ -1,13 +1,18 @@
 
 const { ipcRenderer } = require('electron');
-ipcRenderer.on('onResize', (e) => setTimeout(onResize, 17))
+// ipcRenderer.on('onResize', (e) => setTimeout(onResize, 17))
+
+window.onresize = (e) => setTimeout(onResize, 17)
 
 let interval = undefined
 let lastOnStepTime = undefined
+let app = undefined
+let surface
 
 function onLoad( ) {
+    surface = document.getElementById('surf').getContext('2d')
     onResize( )
-    // onStartInterval( )
+    onStartInterval( )
 }
 
 function onStartInterval( ) {
@@ -27,10 +32,16 @@ function onEndInterval( ) {
 }
 
 function onResize( ) {
+    app = new Application(surface, new Point(window.innerWidth, window.innerHeight))
 }
 
 function onStep( ) {
+    if (app == undefined) {
+        return
+    }
     let now = Date.now( )
     let deltaTime = (now - lastOnStepTime) / 1000
-    
+    app.onStep(deltaTime)
+    app.onDraw( )
+    lastOnStepTime = now
 }

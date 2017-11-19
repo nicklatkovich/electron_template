@@ -1,0 +1,11 @@
+
+{
+    "compilerOptions": {
+        "target": "es5",
+        "module": "none",
+        "outDir": "js/",
+        "sourceMap": true,
+        "outFile": "js/main.js",
+        "watch": true
+    }
+}

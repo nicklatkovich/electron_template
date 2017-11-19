@@ -23,6 +23,7 @@
     "electron": "^1.7.9"
   },
   "devDependencies": {
-    "electron-packager": "^9.1.0"
+    "electron-packager": "^9.1.0",
+    "typescript": "^2.6.1"
   }
 }
